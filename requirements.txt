@@ -1,9 +1,2 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 16 12:50:14 2026
-
-@author: Einc
-"""
-
 streamlit
 pandas
