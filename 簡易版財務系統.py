@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 15 11:31:49 2026
-
-@author: Einc
-"""
-
 import streamlit as st
 import re
 
