@@ -1,6 +1,16 @@
 import streamlit as st
 import re
-
+st.set_page_config(
+    page_title="Backend Logic Validator v1.0", 
+    page_icon="⚙️",                          
+    layout="centered"                         
+)
+st.markdown("""
+    <style>
+    h1 { color: #00D4FF; font-family: 'Courier New', Courier, monospace; }
+    .stButton>button { border-radius: 5px; border: 1px solid #00D4FF; } 
+    </style>
+""", unsafe_allow_html=True)
 def check_invoice(inv_no, inv_amt, order_amt):
     clean_no = str(inv_no).strip().upper()
     taiwan_inv_pattern = r'^[A-Z]{2}\d{8}$'
