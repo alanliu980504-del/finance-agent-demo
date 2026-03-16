@@ -6,6 +6,13 @@ st.set_page_config(
     page_icon="⚙️", 
     layout="wide"
 )
+
+input, [data-baseweb="input"] > div {
+    background-color: 
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
 st.markdown("""
     <style>
     .stApp { background-color: #FFFFFF; }
@@ -37,22 +44,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 4]) 
-
-with col1:
-    st.image("https://www.gstatic.com", width=40) 
-    st.write("### 控制台")
-    st.caption("專案編號：PRJ-2026-V1")
-
-with col2:
-    st.title("驗證引擎總覽")
-    st.info("系統狀態：運行中 (Running)")
     
-    # 建立卡片式區域
-    with st.container():
-        st.write("---")
-        st.subheader("數據校驗輸入")
-        inv_no = st.text_input("發票識別碼 (Identifier)")
-
 def check_invoice(inv_no, inv_amt, order_amt):
     clean_no = str(inv_no).strip().upper()
     taiwan_inv_pattern = r'^[A-Z]{2}\d{8}$'
@@ -66,7 +58,7 @@ def check_invoice(inv_no, inv_amt, order_amt):
     return {"status": "SUCCESS", "msg": "對帳完全正確"}
 
 
-st.title("AI 財務對帳代理人 (Demo)")
+st.title("AI 財務對帳代理人 ")
 
 inv_no = st.text_input("輸入發票號碼", value="AA12345678")
 inv_amt = st.number_input("發票金額", value=1000)
