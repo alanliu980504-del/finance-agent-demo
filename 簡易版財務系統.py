@@ -6,15 +6,13 @@ st.set_page_config(
     page_icon="⚙️", 
     layout="wide"
 )
-
-input, [data-baseweb="input"] > div {
-    background-color: 
-    color: white !important;
-    -webkit-text-fill-color: white !important;
-}
-
 st.markdown("""
     <style>
+    input, [data-baseweb="input"] > div {
+        background-color: #262730 !important; 
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+    }
     .stApp { background-color: #FFFFFF; }
     header { background-color: #FFFFFF !important; border-bottom: 1px solid #E0E0E0; }
     [data-testid="stSidebar"] {
@@ -25,10 +23,11 @@ st.markdown("""
         color: #3C4043 !important;
         font-family: 'Roboto', sans-serif;
     }
-    .stTextInput>div>div>input {
+    .stTextInput>div>div>input, .stNumberInput>div>div>input {
         border-radius: 4px !important;
         border: 1px solid #DADCE0 !important;
-        background-color: white !important;
+        background-color: #262730 !important;
+        color: white !important;
     }
     .stButton>button {
         background-color: #1A73E8 !important;
