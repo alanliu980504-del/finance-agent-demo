@@ -1,16 +1,62 @@
 import streamlit as st
 import re
+import streamlit as st
+
+# 1. 基礎設定：強制寬版模式
 st.set_page_config(
-    page_title="Backend Logic Validator v1.0", 
-    page_icon="⚙️",                          
-    layout="centered"                         
+    page_title="Cloud Logic Console", 
+    page_icon="⚙️", 
+    layout="wide"
 )
+
+# 2. Google Cloud 風格 CSS
 st.markdown("""
     <style>
-    h1 { color: #00D4FF; font-family: 'Courier New', Courier, monospace; }
-    .stButton>button { border-radius: 5px; border: 1px solid #00D4FF; } 
+    .stApp { background-color: #FFFFFF; }
+    header { background-color: #FFFFFF !important; border-bottom: 1px solid #E0E0E0; }
+    [data-testid="stSidebar"] {
+        background-color: #F8F9FA !important;
+        border-right: 1px solid #E0E0E0;
+    }
+    h1, h2, h3, p, span, label {
+        color: #3C4043 !important;
+        font-family: 'Roboto', sans-serif;
+    }
+    .stTextInput>div>div>input {
+        border-radius: 4px !important;
+        border: 1px solid #DADCE0 !important;
+        background-color: white !important;
+    }
+    .stButton>button {
+        background-color: #1A73E8 !important;
+        color: white !important;
+        border-radius: 4px !important;
+        border: none !important;
+        font-weight: 500 !important;
+        padding: 0.5rem 2rem !important;
+    }
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
+
+col1, col2 = st.columns([1, 4]) 
+
+with col1:
+    st.image("https://www.gstatic.com", width=40) 
+    st.write("### 控制台")
+    st.caption("專案編號：PRJ-2026-V1")
+
+with col2:
+    st.title("驗證引擎總覽")
+    st.info("系統狀態：運行中 (Running)")
+    
+    # 建立卡片式區域
+    with st.container():
+        st.write("---")
+        st.subheader("數據校驗輸入")
+        inv_no = st.text_input("發票識別碼 (Identifier)")
+
 def check_invoice(inv_no, inv_amt, order_amt):
     clean_no = str(inv_no).strip().upper()
     taiwan_inv_pattern = r'^[A-Z]{2}\d{8}$'
