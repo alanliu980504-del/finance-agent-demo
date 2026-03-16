@@ -16,7 +16,7 @@ def check_invoice(inv_no, inv_amt, order_amt):
     taiwan_inv_pattern = r'^[A-Z]{2}\d{8}$'
     
     if not re.match(taiwan_inv_pattern, clean_no):
-        return {"status": "ERROR", "msg": "發票號碼格式錯誤 (需為 AA12345678)"}
+        return {"status": "ERROR", "msg": "發票號碼格式錯誤 (需為8位數字)"}
     
     if abs(inv_amt - order_amt) > 0:
         return {"status": "WARNING", "msg": f"金額不符！落差 {inv_amt - order_amt} 元"}
