@@ -13,7 +13,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 def check_invoice(inv_no, inv_amt, order_amt):
     clean_no = str(inv_no).strip().upper()
-    taiwan_inv_pattern = r'^[A-Z]{2}\d{8}$'
+    taiwan_inv_pattern = r'^[A-Z]{1}\d{8}$'
     
     if not re.match(taiwan_inv_pattern, clean_no):
         return {"status": "ERROR", "msg": "發票號碼格式錯誤 (需為 AA12345678)"}
