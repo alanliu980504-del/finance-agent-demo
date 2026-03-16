@@ -1,15 +1,11 @@
 import streamlit as st
 import re
 import streamlit as st
-
-# 1. 基礎設定：強制寬版模式
 st.set_page_config(
     page_title="Cloud Logic Console", 
     page_icon="⚙️", 
     layout="wide"
 )
-
-# 2. Google Cloud 風格 CSS
 st.markdown("""
     <style>
     .stApp { background-color: #FFFFFF; }
